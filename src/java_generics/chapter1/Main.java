@@ -1,4 +1,4 @@
-package session1.java_generics.chapter1;
+package java_generics.chapter1;
 
 public class Main {
 
