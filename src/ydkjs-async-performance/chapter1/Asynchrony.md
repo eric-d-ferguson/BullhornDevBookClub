@@ -1,5 +1,5 @@
 # Chapter 1: [Asynchrony: Now & Later](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch1.md)
-### TLDR of chapter 1: In JS, things happen now and later.
+### TLDR of chapter 1: In JS, things happen now and later, not all at once - there is one single threaded event loop, and all your functions have to get in line, like middle school kids in a lunch line.
 
 JS programs are almost always broken into chunks where the first chunk runs now and the next chunk runs later, in response to an event.
 ```js
