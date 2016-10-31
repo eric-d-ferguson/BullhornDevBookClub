@@ -1,5 +1,5 @@
-# Chapter 2: [Generators](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch4.md)
-### TLDR of chapter 3:
+# Chapter 4: [Generators](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch4.md)
+### TLDR of chapter 4:
 
 ### What's a generator?
 *A generator is a special kind of function that can start and stop one or more times, and doesn't necessarily ever have to finish.*

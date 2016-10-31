@@ -1,4 +1,4 @@
-# Chapter 2: [Promises](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md)
+# Chapter 3: [Promises](https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md)
 ### TLDR of chapter 3: Promises are awesome. Use them. They solve the inversion of control issues that plague us with callbacks-only code.
 
 ### What's a promise?
