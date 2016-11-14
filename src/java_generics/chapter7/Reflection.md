@@ -12,7 +12,26 @@
     - heavy lifting for this is all done in Java's reflection framework
     
 ```JAVA
-// TODO/SHOW EXAMPLES
+    // Meta2Service Example
+    private String determineFieldMapColumnFromAnnotation(String pname, EntityMeta oemeta)  {
+        String ret = null;
+        while (ret == null && oemeta != null) {
+            BullhornEntity bhe = oemeta.getEntityClass().getAnnotation(BullhornEntity.class);
+            // get Parents field maps
+            if (bhe != null && bhe.fieldMapColumns().length > 0) {
+                for (FieldMapColumn fmc: bhe.fieldMapColumns()) {
+                    if (pname.equals(fmc.property())) {
+                        ret = fmc.name();
+                        break;
+                    }
+                }
+            }
+            if (ret == null) {
+                oemeta = oemeta.getParentEntityMeta();
+            }
+        }
+        return ret;
+    }
 ```
     
 #####Reflection for Generics
@@ -21,7 +40,26 @@
     - i.e. superclass, interfaces, fields, methods, etc
     
  ```JAVA
-   // TODO/SHOW EXAMPLES
+   // REST Exposed Example
+   public static List<RestExposedMethodPojo> getAllMethods(Class clazz) {
+   
+        final List<RestExposedMethodPojo> results = new ArrayList<RestExposedMethodPojo>();
+        if (clazz == null) {
+            return results;
+        }
+
+        for (Method method : clazz.getMethods()) {
+            for (Annotation annotation : method.getDeclaredAnnotations()) {
+                if (annotation.annotationType().equals(RestExposedMethod.class)) {
+                    RestExposedMethod restExposedMethod = (RestExposedMethod) annotation;
+                    results.add(new RestExposedMethodPojo(restExposedMethod.name(),
+                                                          restExposedMethod.type()));
+                }
+            }
+        }
+        return results;
+    }
+   
  ```
 
 

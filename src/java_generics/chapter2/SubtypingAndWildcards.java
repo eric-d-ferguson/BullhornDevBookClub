@@ -1,5 +1,6 @@
 package java_generics.chapter2;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -27,14 +28,14 @@ public class SubtypingAndWildcards {
 
     private static void wildcardsWithSuper() {
 
-    	List<Object> objects = Arrays.asList(2, 3.14, "four");
+    	List<? extends Serializable> objects = Arrays.asList(2, 3.14, "four");
 	    List<Integer> integers = Arrays.asList(5, 6);
 
 	    // this won't work
 	    // Collections.copy(integers, objects);
 
 	    // but this will... see method arguments (objects is supertype of Integer)
-	    Collections.copy(objects, integers);
+	    Collections.copy((List<? super Integer>) objects, integers);
 
 	    assert objects.toString().equals("[5, 6, four]");
 
